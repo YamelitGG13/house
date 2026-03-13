@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route,Navigate } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 // Layout
 import Layout from '../modules/app/components/Layout.jsx';
@@ -10,17 +10,17 @@ import ProvidersPage from '../modules/provider/pages/providerPage.jsx';
 
 import UsersPage from '../modules/user/pages/userPage.jsx';
 
-import RolePage from '../modules/role/pages/rolePage.jsx';
 import Permspage from '../modules/permits/page/permsPage.jsx';
+import RolePage from '../modules/role/pages/rolePage.jsx';
 
 // Pages públicas
+import Can from '../components/can.jsx';
 import LoginPage from '../modules/app/pages/LoginPage.jsx';
 import RegisterPage from '../modules/app/pages/RegisterPage.jsx';
-
-import Can from '../components/can.jsx';
 // Protected route
 import ProtectedRoute from './ProtectedRoute';
-
+//Import Cuartos
+import Cuartos from '../modules/cuartos/cuartos.jsx';
 export default function AppRouter() {
   return (
     <BrowserRouter>
@@ -29,6 +29,7 @@ export default function AppRouter() {
         {/* Rutas públicas */}
         <Route path="/" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        
 
         {/* Rutas privadas con layout */}
         <Route
@@ -39,7 +40,8 @@ export default function AppRouter() {
           }
         >
           <Route path="/dashboard" element={<DashboardPage />} />
-
+           {/* Nueva ruta  Cuartos */}
+          <Route path="/cuartos" element={<Cuartos />} />
           {/* Productos → admin, gerente, cajero */}
           <Route
             path="/productos"
@@ -86,11 +88,9 @@ export default function AppRouter() {
           />
         </Route>
 
-
-
         {/* Página de error si no tiene permisos */}
         <Route path="/no-autorizado" element={<h1>No autorizado</h1>} />
-
+  
       </Routes>
     </BrowserRouter>
   );
