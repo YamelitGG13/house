@@ -15,71 +15,73 @@
   background-size: cover;
   background-position: center;
   position: relative;
+  margin-bottom: 80px;
 }
-
 
 .hero-overlay{
   background: rgba(0,0,0,0.65);
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-align: center;
-  padding: 20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  text-align:center;
+  padding:20px;
 }
 
-
 .hero-overlay h1{
-  font-size: 60px;
-  font-weight: 600;
-  margin-bottom: 15px;
+  font-size:60px;
+  font-weight:600;
+  margin-bottom:15px;
 }
 
 .hero-overlay p{
-  font-size: 20px;
-  margin-bottom: 30px;
-  max-width: 600px;
+  font-size:20px;
+  margin-bottom:30px;
+  max-width:600px;
 }
 
-/* BOTON LATERAL */
+.estrellas{
+  color:white;
+  font-size:22px;
+  margin-bottom:15px;
+  display:flex;
+  gap:20px;
+}
+
+
+/* BOTON PUBLICAR */
 
 .btn-publicar{
-  position: absolute;
-  top: 40px;
-  right: 60px;
+  position:absolute;
+  top:40px;
+  right:60px;
 
-  background: white;
-  color: black;
-  border: none;
-  padding: 12px 28px;
-  border-radius: 25px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  background:white;
+  color:black;
+  border:none;
+  padding:12px 28px;
+  border-radius:25px;
+  font-weight:500;
+  cursor:pointer;
 
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+  transition:0.3s;
+  box-shadow:0 4px 10px rgba(0,0,0,0.2);
 }
 
 .btn-publicar:hover{
-  background: black;
-  color: white;
+  background:black;
+  color:white;
 }
 
 
-.estrellas{
-  color: rgb(255, 255, 255);
-  font-size: 22px;
-  margin-bottom: 15px;
-  display: flex;
-  gap: 20px;
-}
-/* CONTENEDOR */
+/* CONTENEDOR CARDS */
 
 .contenedor-cards{
-  display:flex;
-  justify-content:center;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap:30px;
   padding:40px;
   background:#f4f4f4;
 }
@@ -88,10 +90,14 @@
 /* CARD */
 
 .card-cuarto{
-  width:320px;
+  width:100%;
+  max-width:320px;
+  margin:auto;
+
   background:white;
   border-radius:16px;
   overflow:hidden;
+
   box-shadow:0 8px 20px rgba(0,0,0,0.12);
   transition:0.3s;
 }
@@ -120,13 +126,16 @@
   position:absolute;
   top:12px;
   right:12px;
+
   background:white;
   width:35px;
   height:35px;
   border-radius:50%;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   box-shadow:0 4px 10px rgba(0,0,0,0.2);
   cursor:pointer;
   font-size:16px;
@@ -170,6 +179,7 @@
   margin:8px 0;
   font-size:14px;
   color:#666;
+
   display:flex;
   align-items:center;
   gap:6px;
@@ -220,31 +230,169 @@
 }
 
 
-/* BOTON */
+/* BOTON CONTACTO */
 
 .btn-contacto{
   background:black;
   color:white;
   border:none;
+
   padding:10px 16px;
   border-radius:10px;
+
   cursor:pointer;
   font-size:14px;
+
   display:flex;
   align-items:center;
   gap:6px;
+
   transition:0.3s;
 }
 
 .btn-contacto:hover{
   background:#333;
 }
-.contenedor-cards{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap:30px;
-  padding:40px;
+
+
+/* ---------------- */
+/* MODAL */
+/* ---------------- */
+
+
+.modal{
+  background:white;
+  padding:30px;
+  border-radius:12px;
+
+  width:420px;
+  max-width:90%;
+
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+
+  animation:aparecer 0.3s ease;
 }
-.hero{
-  margin-bottom: 80px;
+
+.modal form{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.modal input{
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+.modal-botones{
+  display:flex;
+  justify-content:space-between;
+  margin-top:10px;
+}
+
+.modal-botones button{
+  padding:10px 20px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.modal-botones button:first-child{
+  background:black;
+  color:white;
+}
+
+.modal-botones button:last-child{
+  background:#ccc;
+}
+
+
+/* ANIMACION */
+
+@keyframes aparecer{
+  from{
+    transform:scale(0.8);
+    opacity:0;
+  }
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+.modal-overlay {
+  position: fixed; /* Esto es correcto */
+  top: 0;
+  left: 0;
+  right: 0; /* Agrega esto */
+  bottom: 0; /* Agrega esto */
+  width: 100vw; /* Cambia a vw para asegurar el ancho de pantalla */
+  height: 100vh; /* Cambia a vh para asegurar el alto de pantalla */
+  background: rgba(0, 0, 0, 0.75); /* Un poco más oscuro para notar si aparece */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999; /* Aumenta un poco por si acaso */
+  pointer-events: all; /* Asegura que capture los clics */
+}
+
+.modal {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 420px;
+  max-width: 90%;
+  position: relative; /* Agrega esto */
+  z-index: 100000; /* Un nivel más arriba que el overlay */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  animation: aparecer 0.3s ease;
+}
+/* Estilo especial para la tarjeta que abre el modal */
+.card-publicar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #bbb; /* Borde punteado */
+  background: #fdfdfd;
+  cursor: pointer;
+  height: 350px; /* Ajusta según el alto de tus otras cards */
+  transition: all 0.3s ease;
+  box-shadow: none; /* Menos sombra para que parezca un espacio vacío */
+}
+
+.card-publicar:hover {
+  background: #f0f0f0;
+  border-color: #000;
+  transform: translateY(-5px);
+}
+
+.contenido-publicar {
+  text-align: center;
+  color: #666;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.icono-plus {
+  font-size: 40px;
+  background: #eee;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  transition: 0.3s;
+}
+
+.card-publicar:hover .icono-plus {
+  background: #000;
+  color: #fff;
+}
+
+.card-publicar span {
+  font-weight: 600;
+  font-size: 16px;
 }
