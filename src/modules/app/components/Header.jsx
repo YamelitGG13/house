@@ -1,20 +1,20 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import {
-  FaHouse,
-  FaUserShield,
-  FaKey,
+  FaBars,
   FaBoxesStacked,
   FaHandshake,
+  FaHouse,
+  FaKey,
   FaUsers,
-  FaBars
+  FaUserShield
 } from "react-icons/fa6";
 
 import perfil from "../../../assets/perfil.png";
 
-import { useAuth } from "../../../context/AuthContext";
 import Can from "../../../components/can.jsx";
+import { useAuth } from "../../../context/AuthContext";
 import UserProfileModal from "../../../modules/user/components/UserProfileModal.jsx";
 
 import "./header.css";
@@ -73,7 +73,13 @@ const Header = ({ toggleSidebar }) => {
           <span>Usuarios</span>
         </NavLink>
 
+        <NavLink to="/cuartos" className="header-link">
+          <FaUsers />
+          <span>Cuartos</span>
+        </NavLink>
+
       </nav>
+
 
       {/* PERFIL */}
       <div className="header-profile" onClick={() => setShowProfile(true)}>
