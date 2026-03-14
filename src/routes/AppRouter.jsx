@@ -5,17 +5,15 @@ import Layout from "../modules/app/components/Layout.jsx";
 
 // Pages privadas
 import DashboardPage from "../modules/app/pages/dashboardPage.jsx";
-import Cuartos from "../modules/cuartos/cuartos.jsx";
+import CuartosUserPage from "../modules/cuartos/Page/cuartosuser.jsx";
 import Permspage from "../modules/permits/page/permsPage.jsx";
 import ProductsPage from "../modules/product/pages/productPage.jsx";
 import ProvidersPage from "../modules/provider/pages/providerPage.jsx";
 import RolePage from "../modules/role/pages/rolePage.jsx";
 import UsersPage from "../modules/user/pages/userPage.jsx";
-
 // Pages públicas
 import LoginPage from "../modules/app/pages/LoginPage.jsx";
 import RegisterPage from "../modules/app/pages/RegisterPage.jsx";
-
 // Seguridad
 import Can from "../components/can.jsx";
 import ProtectedRoute from "./ProtectedRoute.jsx";
@@ -29,6 +27,7 @@ export default function AppRouter() {
         <Route path="/" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
 
+
         {/* ================= RUTAS PRIVADAS ================= */}
         <Route
           element={
@@ -40,9 +39,8 @@ export default function AppRouter() {
 
           {/* Dashboard */}
           <Route path="/dashboard" element={<DashboardPage />} />
-
-          {/* Cuartos */}
-          <Route path="/cuartos" element={<Cuartos />} />
+           <Route path="/cuartos" element={<CuartosUserPage />} />
+           
 
           {/* Productos */}
           <Route
