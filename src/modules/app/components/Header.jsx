@@ -127,14 +127,14 @@ const Header = ({ toggleSidebar, sidebarOpen }) => {
           <span>Usuarios</span>
         </NavLink>
 
-        <NavLink
+          <NavLink
           to="/cuartos"
           className={({ isActive }) => `header-link ${isActive ? "active" : ""}`}
         >
           <FaUsers />
           <span>Cuartos</span>
         </NavLink>
-
+ 
       </nav>
 
       {/* RIGHT */}
