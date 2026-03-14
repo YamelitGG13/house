@@ -6,12 +6,16 @@ import Layout from '../modules/app/components/Layout.jsx';
 // Pages internas
 import DashboardPage from '../modules/app/pages/dashboardPage.jsx';
 import ProductsPage from '../modules/product/pages/productPage.jsx';
+
+
+
 import ProvidersPage from '../modules/provider/pages/providerPage.jsx';
 
 import UsersPage from '../modules/user/pages/userPage.jsx';
 
 import RolePage from '../modules/role/pages/rolePage.jsx';
 import Permspage from '../modules/permits/page/permsPage.jsx';
+import RentPage from '../modules/rents/pages/rentpage.jsx';
 
 // Pages públicas
 import LoginPage from '../modules/app/pages/LoginPage.jsx';
@@ -81,6 +85,15 @@ export default function AppRouter() {
             element={
               <Can permiso="PERMISOS_LIST" fellback={<Navigate to="/no-autorizado" replace />}>
                 <Permspage />
+              </Can>
+            }
+          />
+          <Route
+            path="/renta"
+            
+            element={
+              <Can permiso="RENT_LIST" fellback={<Navigate to="/no-autorizado" replace />}>
+                <RentPage />
               </Can>
             }
           />

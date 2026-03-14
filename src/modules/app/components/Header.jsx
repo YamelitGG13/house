@@ -109,6 +109,16 @@ const Header = ({ toggleSidebar, sidebarOpen }) => {
           </NavLink>
         </Can>
 
+        <Can permiso="RENT_LIST">
+          <NavLink
+            to="/renta"
+            className={({ isActive }) => `header-link ${isActive ? "active" : ""}`}
+          >
+            <FaHandshake />
+            <span>Renta</span>
+          </NavLink>
+        </Can>
+
         <NavLink
           to="/usuarios"
           className={({ isActive }) => `header-link ${isActive ? "active" : ""}`}
