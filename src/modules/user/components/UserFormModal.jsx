@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import "./components.css";
+import { useEffect, useState } from "react";
 import { rolService } from "../../role/service/rolService";
+import "./components.css";
 
 const UserFormModal = ({ isOpen, onClose, onSubmit, user }) => {
 

@@ -5,7 +5,7 @@ import Layout from "../modules/app/components/Layout.jsx";
 
 // Pages privadas
 import DashboardPage from "../modules/app/pages/dashboardPage.jsx";
-import Cuartos from "../modules/cuartos/cuartos.jsx";
+import Cuartos from "../modules/cuartos/Page/cuartosuser.jsx";
 import Permspage from "../modules/permits/page/permsPage.jsx";
 import ProductsPage from "../modules/product/pages/productPage.jsx";
 import ProvidersPage from "../modules/provider/pages/providerPage.jsx";

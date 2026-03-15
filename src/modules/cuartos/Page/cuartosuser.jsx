@@ -3,8 +3,7 @@ import { BsEnvelope, BsThreeDotsVertical } from "react-icons/bs";
 import { MdLocationOn, MdMeetingRoom, MdOutlineHomeWork, MdOutlineRoomService } from "react-icons/md";
 import RoomFormModal from "../components/RoomFormModal";
 import { useRooms } from "../hooks/useRooms";
-import "./page.css"; // Importación del CSS
-
+import "./page.css";
 const CuartosUser = () => {
   const { rooms, createRoom, deleteRoom } = useRooms();
   const [openModal, setOpenModal] = useState(false);
